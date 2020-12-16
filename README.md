@@ -54,9 +54,9 @@ I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS
   
   16- Run the following command to know that the kubernetes build is successful `kubectl get pods` and `kubectl get services` - screenshot-7.
   
-  17- From the output of the previous command: `kubectl get services` , paste the 'External IP/8000' in a browser to access the hello application - screesnhot-11.
+  17- From the output of the previous command: `kubectl get services` , paste the 'External IP/8000' in a browser to access the hello application - screesnhot-08.
   
-  18 - Run the other Jenkinsfile to do apply the Rolling deployment - screenshot-8.
+  18 - Run the other Jenkinsfile to do apply the Rolling deployment - screenshot-09.
   
   
   

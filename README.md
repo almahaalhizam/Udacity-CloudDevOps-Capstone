@@ -10,7 +10,7 @@ In this project I will applied the skills and knowledge that were developed thro
   
 I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS EKS using rolling deployment.
 
-# Project Requirements
+## Project Requirements
   - Jenkins
   - Blue Ocean Plugin in Jenkins
   - Pipeline-AWS Plugin in Jenkins
@@ -21,38 +21,45 @@ I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS
   
  All below mentioned screesnhots are found under screesnhots folder.
  
-# Project Steps
+## Project Steps
   1- Launch an Ubuntu EC2 instance where you will setup jenkins, and install all the requirements - screenshot-01.
   
-  2- Build a simple application, such as a hello.html (index.html), and create the Dockerfile to containrize the application - screenshot-02.
+  2- Build a simple application, such as a hello.html or index.html - screenshot-02.
   
-  3- Run the command "aws configure" to be able to use Cloudformation to build the infrastructure (networking, cluster, and node groups) in CLI. scripts and files will be found under "deployment" folder.
+  3- and create the Dockerfile to containrize the application - screenshot-03.
   
-  4- From cloudformation folder, run the following command to create the infrastructure ".\create_stack.sh infra-stack .\infra.yml .\infra-params.json"
+  4 - Run the command "aws configure" to be able to use Cloudformation to build the infrastructure (networking, cluster, and node groups) in CLI. scripts and files will be found under "deployment" folder.
   
-  5- From AWS Console, Navigate to Cloudformation and check if the creation of 'infra-stack' stack is completed.
+  5- From cloudformation folder, run the following command to create the infrastructure ".\create_stack.sh infra-stack .\infra.yml .\infra-params.json" - screenshot-04.
   
-  6-From cloudformation folder, run the following command to create an eks cluster which will use resources from 'infra-stack' stack " .\aws_create_stack.sh eks-stack .\eks-cluster.yml .\eks-cluster-params.json"
+  6- From AWS Console, Navigate to Cloudformation and check if the creation of 'infra-stack' stack is completed - screenshot-05.
   
-  7- From AWS Console, Navigate to Cloudformation and check if the creation of 'eks-stack' stack is completed, it nearly takes about 12-20 min.
+  7- From cloudformation folder, run the following command to create an eks cluster which will use resources from 'infra-stack' stack " .\aws_create_stack.sh eks-stack .\eks-cluster.yml .\eks-cluster-params.json" - screenshot-06.
   
-  8- From the cloudformation folder, run the following command to create the node-group in the previosuly created cluster ".\aws_create_stack.sh nodegroup-stack .\eks-cluster-nodegroup.yml .\eks-cluster-params.json"
+  8- From AWS Console, Navigate to Cloudformation and check if the creation of 'eks-stack' stack is completed, it nearly takes time to complete - screenshot-07.
   
-  9- Check in AWS Console if the 'nodegroup-stack' has been completely created.
+  9- From the cloudformation folder, run the following command to create the node-group in the previosuly created cluster ".\aws_create_stack.sh nodegroup-stack .\eks-cluster-nodegroup.yml .\eks-cluster-params.json" - screenshot-08.
   
-------------------------------------------------------------------------------------------------------------------------
+  10- Check in AWS Console if the 'nodegroup-stack' has been completely created - screenshot-09.
   
-## Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
-  - Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.
-  - It should create the EC2 instances (if you are building your own), set the correct networking settings, and deploy software to these instances.
-  - As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Cloudformation at the student’s discretion.
+  11- There will be 2 Jenkinsfiles, one for first deployment, and the other for rolling deployment. The first depolyment Jenkins pipline will include the following stages ( Lint , Build Docker Image, Push Docker Image to Dockerhub, Deploy containers).
   
-## Step 4: Build your pipeline
-  - Construct your pipeline in your GitHub repository.
-  - Set up all the steps that your pipeline will include.
-  - Configure a deployment pipeline.
-  - Include your Dockerfile/source code in the Git repository.
-  - Include with your Linting step both a failed Linting screenshot and a successful Linting screenshot to show the Linter working properly.
+  12 - Build the first depolyment Jenkins pipline to include the following stages ( Lint , Build Docker Image, Push Docker Image to Dockerhub, Deploy containers) as found in the file "Jenkins-first-depolyment".
+  
+  13- Modify the index.html to have wrong syntax in order to show that the Linter is working properly - screesnhot-11. The screenshot shows the Lint stage failing in the pipeline. 
+  
+  14- Adjust the syntax correctly in index.html and showcase that Linter is working and whole pipeline is successful - screesnhot-12.
+  
+  15- Run the following command to know that the kubernetes build is successful "kubectl get pods" and "kubectl get services" - screenshot-13.
+  
+  16- From the output of the previous command: "kubectl get services" , paste the 'External IP/8000' in a browser to access the hello application - screesnhot-14.
+  
+  17 - Run the other Jenkinsfile to do apply the Rolling deployment - screenshot-15.
+  
+  
+  
+  
+
 
 ## Step 5: Test your pipeline
   - Perform builds on your pipeline.

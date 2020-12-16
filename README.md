@@ -46,9 +46,9 @@ I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS
   
   12 - Build the first depolyment Jenkins pipline to include the following stages ( Lint , Build Docker Image, Push Docker Image to Dockerhub, Deploy containers) as found in the file "Jenkins-first-depolyment".
   
-  13- Modify the index.html to have wrong syntax in order to show that the Linter is working properly - screesnhot-5. The screenshot shows the Lint stage failing in the pipeline. 
+  13- Modify the index.html to have wrong syntax in order to show that the Linter is working properly - screenshot-5. The screenshot shows the Lint stage failing in the pipeline. 
   
-  14- Adjust the syntax correctly in index.html and showcase that Linter is working and whole pipeline is successful - screesnhot-6.
+  14- Adjust the syntax correctly in index.html and showcase that Linter is working and whole pipeline is successful - screenshot-6.
   
   15- Run the following command to know that the kubernetes build is successful `kubectl get pods` and `kubectl get services` - screenshot-7.
   

@@ -1,28 +1,40 @@
 # Udacity-CloudDevOps-Capstone
 
-In this project I will apply the skills and knowledge that were developed throughout the Udacity Cloud DevOps Nanodegree program. These include:
-  - Working in AWS
-  - Using Jenkins to implement Continuous Integration and Continuous Deployment
-  - Building pipelines
-  - Working with CloudFormation to deploy clusters
-  - Building Kubernetes clusters
-  - Building Docker containers in pipelines
+In this project I will applied the skills and knowledge that were developed throughout the Udacity Cloud DevOps Nanodegree program. These include:
+  - Working in AWS.
+  - Using Jenkins to implement Continuous Integration and Continuous Deployment.
+  - Building pipelines.
+  - Working with CloudFormation to deploy clusters.
+  - Building Kubernetes clusters.
+  - Building Docker containers in pipelines.
   
-I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS EKS which using Blue/Green Deployment.
+I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS EKS using rolling deployment.
 
+# Project Requirements
+  - Jenkins
+  - Blue Ocean Plugin in Jenkins
+  - Pipeline-AWS Plugin in Jenkins
+  - Docker
+  - AWS Cli
+  - Eksctl
+  - Kubectl
+  
+ All below mentioned screesnhots are found under screesnhots folder.
+ 
 # Project Steps
-
-## Step 1: Propose and Scope the Project
-  - Plan what your pipeline will look like.
-  - Decide which options you will include in your Continuous Integration phase.
-  - Use Jenkins.
-  - Pick a deployment type - either rolling deployment or blue/green deployment.
-  - For the Docker application you can either use an application which you come up with, or use an open-source application pulled from the Internet, or if you have   - no idea, you can use an Nginx “Hello World, my name is (student name)” application.
+  1- Launch an Ubuntu EC2 instance where you will setup jenkins, and install all the requirements - screenshot-01.
+  2- Build a simple application, such as a hello.html (index.html), and create the Dockerfile to containrize the application - screenshot-02.
+  3- Run the command "aws configure" to be able to use Cloudformation to build the infrastructure (networking, cluster, and node groups) in CLI. scripts and files will be found under "deployment" folder.
+  4- From cloudformation folder, run the following command to create the infrastructure ".\create_stack.sh infra-stack .\infra.yml .\infra-params.json"
+  5- From AWS Console, Navigate to Cloudformation and check if the creation of 'infra-stack' stack is completed.
+  6-From cloudformation folder, run the following command to create an eks cluster which will use resources from 'infra-stack' stack " .\aws_create_stack.sh eks-stack .\eks-cluster.yml .\eks-cluster-params.json"
+  7- From AWS Console, Navigate to Cloudformation and check if the creation of 'eks-stack' stack is completed, it nearly takes about 12-20 min.
+  8- From the cloudformation folder, run the following command to create the node-group in the previosuly created cluster ".\aws_create_stack.sh nodegroup-stack .\eks-cluster-nodegroup.yml .\eks-cluster-params.json"
+  9- Check in AWS Console if the 'nodegroup-stack' has been completely created.
   
-## Step 2: Use Jenkins, and implement blue/green or rolling deployment.
- - Create your Jenkins master box with either Jenkins and install the plugins you will need.
-  - Set up your environment to which you will deploy code.
-  - Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
+------------------------------------------------------------------------------------------------------------------------
+  
+## Step 3: Pick AWS Kubernetes as a Service, or build your own Kubernetes cluster.
   - Use Ansible or CloudFormation to build your “infrastructure”; i.e., the Kubernetes Cluster.
   - It should create the EC2 instances (if you are building your own), set the correct networking settings, and deploy software to these instances.
   - As a final step, the Kubernetes cluster will need to be initialized. The Kubernetes cluster initialization can either be done by hand, or with Cloudformation at the student’s discretion.

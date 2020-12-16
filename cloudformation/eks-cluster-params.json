@@ -1,0 +1,10 @@
+[
+  {
+    "ParameterKey": "EnvironmentName",
+    "ParameterValue": "Capstone"
+  },
+  {
+      "ParameterKey": "ClusterName",
+      "ParameterValue": "CapstoneCluster"
+  }
+]

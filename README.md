@@ -23,13 +23,21 @@ I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS
  
 # Project Steps
   1- Launch an Ubuntu EC2 instance where you will setup jenkins, and install all the requirements - screenshot-01.
+  
   2- Build a simple application, such as a hello.html (index.html), and create the Dockerfile to containrize the application - screenshot-02.
+  
   3- Run the command "aws configure" to be able to use Cloudformation to build the infrastructure (networking, cluster, and node groups) in CLI. scripts and files will be found under "deployment" folder.
+  
   4- From cloudformation folder, run the following command to create the infrastructure ".\create_stack.sh infra-stack .\infra.yml .\infra-params.json"
+  
   5- From AWS Console, Navigate to Cloudformation and check if the creation of 'infra-stack' stack is completed.
+  
   6-From cloudformation folder, run the following command to create an eks cluster which will use resources from 'infra-stack' stack " .\aws_create_stack.sh eks-stack .\eks-cluster.yml .\eks-cluster-params.json"
+  
   7- From AWS Console, Navigate to Cloudformation and check if the creation of 'eks-stack' stack is completed, it nearly takes about 12-20 min.
+  
   8- From the cloudformation folder, run the following command to create the node-group in the previosuly created cluster ".\aws_create_stack.sh nodegroup-stack .\eks-cluster-nodegroup.yml .\eks-cluster-params.json"
+  
   9- Check in AWS Console if the 'nodegroup-stack' has been completely created.
   
 ------------------------------------------------------------------------------------------------------------------------

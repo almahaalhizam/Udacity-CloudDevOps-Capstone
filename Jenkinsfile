@@ -36,8 +36,8 @@ pipeline {
       stage('Deploy containers') {
         steps {
           withAWS(region:'us-west-2',credentials:'aws-static') {
-            sh 'kubectl apply -f deployments/deployments.yml'  
-            sh 'kubectl apply -f deployments/service.yml'
+            sh 'kubectl apply -f deployment/deployments.yml'  
+            sh 'kubectl apply -f deployment/service.yml'
            }
         }
       } 

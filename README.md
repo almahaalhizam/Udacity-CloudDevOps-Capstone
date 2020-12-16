@@ -1,6 +1,6 @@
 # Udacity-CloudDevOps-Capstone
 
-In this project I will applied the skills and knowledge that were developed throughout the Udacity Cloud DevOps Nanodegree program. These include:
+In this project I applied the skills and knowledge that were developed throughout the Udacity Cloud DevOps Nanodegree program. These include:
   - Working in AWS.
   - Using Jenkins to implement Continuous Integration and Continuous Deployment.
   - Building pipelines.

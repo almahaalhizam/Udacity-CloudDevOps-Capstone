@@ -34,11 +34,11 @@ I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS
   
   6- From AWS Console, Navigate to Cloudformation and check if the creation of 'infra-stack' stack is completed - screenshot-02.
   
-  7- From cloudformation folder, run the following command to create an eks cluster which will use resources from 'infra-stack' stack `./create_stack.sh eks-stack ./eks-cluster.yml ./eks-cluster-params.json`.
+  7- From cloudformation folder, run the following command to create an eks cluster which will use resources from 'infra-stack' stack `./create-stack.sh eks-stack ./eks-cluster.yml ./eks-cluster-params.json`.
   
   8- From AWS Console, Navigate to Cloudformation and check if the creation of 'eks-stack' stack is completed, it nearly takes time to complete - screenshot-03.
   
-  9- From the cloudformation folder, run the following command to create the node-group in the previosuly created cluster `.\aws_create_stack.sh nodegroup-stack .\eks-cluster-nodegroup.yml .\eks-cluster-params.json`
+  9- From the cloudformation folder, run the following command to create the node-group in the previosuly created cluster `./create-stack.sh nodegroup-stack ./eks-cluster-nodegroup.yml ./eks-cluster-params.json`
   
   10- Check in AWS Console if the 'nodegroup-stack' has been completely created - screenshot-04.
   

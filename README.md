@@ -50,11 +50,13 @@ I created a CI/CD pipeline for a simple website that deploys to a cluster in AWS
   
   14- Adjust the syntax correctly in index.html and showcase that Linter is working and whole pipeline is successful - screenshot-6.
   
-  15- Run the following command to know that the kubernetes build is successful `kubectl get pods` and `kubectl get services` - screenshot-7.
+  15- Due to the fact we are interacting with the cluster with ubuntu user, so we will create a kubeconfig in the ubuntu user file system by running the following command when logged in as ubuntu user ` aws eks --region us-west-2 update-kubeconfig --name CapstoneCluster ` where the 'ClusterCapstone' is the defined cluster name.
   
-  16- From the output of the previous command: `kubectl get services` , paste the 'External IP/8000' in a browser to access the hello application - screesnhot-11.
+  16- Run the following command to know that the kubernetes build is successful `kubectl get pods` and `kubectl get services` - screenshot-7.
   
-  17 - Run the other Jenkinsfile to do apply the Rolling deployment - screenshot-8.
+  17- From the output of the previous command: `kubectl get services` , paste the 'External IP/8000' in a browser to access the hello application - screesnhot-11.
+  
+  18 - Run the other Jenkinsfile to do apply the Rolling deployment - screenshot-8.
   
   
   

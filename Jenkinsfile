@@ -37,7 +37,7 @@ pipeline {
         steps {
           withAWS(region:'us-west-2',credentials:'aws-static') {
             sh "kubectl set image deployment/capstone-deploy container-deploy=almaha96/capstone:latest"
-            sh 'kubectl apply -f deployments/deployments.yml'  
+            sh 'kubectl apply -f deployment/deployments.yml'  
             sh "kubectl get nodes"
             sh "kubectl get deployment"
             sh "kubectl get pod -o wide"
